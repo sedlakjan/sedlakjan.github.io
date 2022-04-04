@@ -252,7 +252,10 @@ margin-top: 2em;
   }
   .btn-2{
     width: 100%;
-    font-size: 3em;
+    font-size: 2em;
+  }
+  #output{
+    font-size: 15px;
   }
   .center-screen {
       position: absolute;
@@ -275,6 +278,9 @@ bottom: 0px;
     .btn-2{
       width: auto;
       font-size: 3em;
+    }
+    #output{
+      font-size: 20px;
     }
     .center-screen {
         position: absolute;
