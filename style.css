@@ -250,7 +250,7 @@ margin-top: 2em;
   #vysledok{
     margin-top: 0em;
   }
-  .btn2{
+  .btn-2{
     width: 100%;
     font-size: 3em;
   }
@@ -272,7 +272,7 @@ bottom: 0px;
     #vysledok{
       margin-top: 2em;
     }
-    .btn2{
+    .btn-2{
       width: auto;
       font-size: 3em;
     }
