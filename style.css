@@ -246,7 +246,7 @@ button{
 #vysledok{
 margin-top: 2em;
 }
-@media (min-width: 480px) {
+@media (min-width: 280px) {
   .center-screen {
       position: absolute;
       top: 40%;
