@@ -247,6 +247,9 @@ button{
 margin-top: 2em;
 }
 @media (min-width: 280px) {
+  #display{
+    font-size: 60px;
+  }
   #vysledok{
     margin-top: 0em;
   }
@@ -272,6 +275,9 @@ bottom: 0px;
     }
   }
   @media (min-width: 768px) {
+    #display{
+      font-size: 80px;
+    }
     #vysledok{
       margin-top: 2em;
     }
@@ -291,6 +297,9 @@ bottom: 0px;
       }
     }
     @media (min-width: 1024px) {
+      #display{
+        font-size: 100px;
+      }
       .center-screen {
           position: absolute;
           top: 40%;
