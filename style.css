@@ -1,3 +1,7 @@
+.fa-arrow-left{
+  margin-bottom: 1em;
+  color:#0067ab
+}
 #display{
   text-align: center;
   height: 70px;
@@ -29,6 +33,7 @@
 }
 .info{
   font-weight: bold;
+  float: left;
 }
 .info li{
   font-weight:normal;
@@ -53,13 +58,14 @@
 
   width: 100%;
   height: 400px;
-  object-fit: cover;
+  object-fit:scale-down;
   margin: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 
 }
+
 .middle{
     margin-top: 10px;
     display: block;
@@ -211,7 +217,7 @@ button{
 .button-17:hover {
   background: #F6F9FE;
   color: #174ea6;
-  transform: scale(1.5); 
+  transform: scale(1.3); 
 }
 
 .button-17:active {
@@ -246,7 +252,7 @@ button{
 #vysledok{
 margin-top: 2em;
 }
-@media (min-width: 280px) {
+@media (min-width: 180px) {
   #display{
     font-size: 60px;
   }
@@ -268,11 +274,25 @@ margin-top: 2em;
       transform: translate(-50%, -50%);
       text-align: center;
     }
+    .center-screen .button-17{
+width: 100px;
+margin: 0px;
+    }
     #logo{
       position: absolute;
 right: 0px;
 bottom: 0px;
+width: 100px;
+z-index: -1;
     }
+    .mobil {
+      width: 10em;
+      height: 10em;
+      float: left;
+      max-width: 100%;
+
+  }
+
   }
   @media (min-width: 768px) {
     #display{
@@ -295,10 +315,25 @@ bottom: 0px;
         margin-right: -50%;
         transform: translate(-50%, -50%);
       }
+      .mobil{
+        width: 100%;
+        height: 400px;
+      }
+      #logo{
+        position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: auto;
+  z-index: -1;
+      }
     }
     @media (min-width: 1024px) {
       #display{
         font-size: 100px;
+      }
+      .mobil{
+        width: 100%;
+        height: 400px;
       }
       .center-screen {
           position: absolute;
@@ -308,6 +343,7 @@ bottom: 0px;
           transform: translate(-50%, -50%);
         }
         #logo{
+          width: auto;
           position: absolute;
 right: 0px;
 bottom: 0px;
