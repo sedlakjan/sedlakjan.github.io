@@ -18,15 +18,19 @@ function calculate(createarray) {
 function summary() {
     const konverziaArr = polozky.map(str =>{
         return Number(str);
-    }) 
+}) 
     let element = 0;
 for (i = 0; i < konverziaArr.length; i++) {
         element += konverziaArr[i];
-        
+}
+    if (element == 0) {
+        total.innerHTML='<h2><br>Oooops<br>Tvoj košík je prázdny<h2>'
     }
-    
-    total.innerText=element + ' €';
-    outputs.innerHTML = outputsText;
-    outputs.classList.add('fade');
+    else{
+        total.innerText=element + ' €';
+        outputs.innerHTML = outputsText;
+        outputs.classList.add('fade');
+    }
+
 }
 
