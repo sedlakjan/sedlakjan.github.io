@@ -24,7 +24,7 @@ for (i = 0; i < konverziaArr.length; i++) {
         element += konverziaArr[i];
 }
     if (element == 0) {
-        total.innerHTML='<h2><br>Oooops<br>Tvoj košík je prázdny<h2>'
+        total.innerHTML='<h2><br>Oooops<br>Tvoj košík je prázdny<h2><p>Niečo si kúp a objednaj :)</p>'
     }
     else{
         total.innerText=element + ' €';
