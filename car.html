@@ -12,26 +12,25 @@
 </head>
 <body>
     <div style="padding-top:2em" class="container">
-        <a href="/index.html" style="text-decoration:none; color:#0067ab"><i class="fa-solid fa-arrow-left"></i> Späť na hlavné menu</a>
 
         <h1 id="change">Kupujem si prvé skutočné auto</h1>
-    
+  <div id="kosik">
+    🛒 Suma: <span id="display">0 €</span>
+  </div>  
         <p>Rozhodli ste sa pre kúpu svojho prvého vlastného auta. S prihladnutím na to, že ste stále stredoškoláci a beriete do úvahy svoje  možnosti, viete, že reálna v tejto chvíli je  kúpa ojazdeného auta. Už ste si urobili predbežný prieskum a výber ste zúžili na tri možné alternatívy. Vašou úlohou je vybrať si jednu z možných alternatív, plus sa rozhodnite, ktoré povinné zmluvné poistenie vám najviac vyhovuje. Zvolenú alternatívu zaznamenajte do sivo vyznačenej bunky. Auto samozrejme chcete používať, nekupujete si ho preto, aby stálo na dvore:) takže treba myslieť aj na tankovanie. Premyslite si, ktorá z troch alternatív je pre vás najprijateľnejšia a tú si zaznamenajte do sivo vyznačenej bunky. Nakoniec spočítajte výslednú sumu, ku ktorej sa v priebehu roka chcete dopracovať, aby ste naplnili svoj cieľ, kúpili si vysnívané vlastné auto.										
         </p>
         <br>
         <h2>Na akom aute budúci rok prídeš do školy?</h2>
         <div class="row">
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">Opel Zafira
-            </h3>
-            <img class="item" src="/images/car/Opel-Zafira_2005_Minivens_151124110735_3.jpg"/>
-            <p class="popis">Nemecká kvalita na slovenské cesty</p>
-            <div class="row">
+            <h3>Škoda Fabia</h3>
+            <img class="item" src="/img/fabia.jfif"/>
+            <p class="popis">Nesmrteľná legenda</p>
             <ul class="info">Rok výroby
-                <li>2006</li>
+                <li>2005</li>
             </ul>
                     <ul class="info">Motor
-                <li>CDTI 1,9 Diesel
+                <li>1.4 Mpi (50kw)
                 </li>
             </ul>
                     <ul class="info">Prevodovka
@@ -43,26 +42,23 @@
                 </li>
             </ul>
                     <ul class="info">Farba
-                <li>modrá metalíza
+                <li>strieborná metalíza
                 </li>
             </ul>
-        </div>
 
-            <h3>Cena: 1 800 € + 400 € opravy</h3>
-
-            <button value="2200" class="middle button-21">Vybrať</button>                             
+            <h3 class="cena">Cena: 1 500 € + opravy</h3>
+            <button value="1900" class="middle button-21">Vybrať</button>                             
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">Škoda Fabia Combi
+            <h3>Honda Civic 8.gen
             </h3>
-            <img class="item" src="/images/car/fabka.jpeg"/>
-            <p class="popis">Česká klasika do každej začínajúcej firmy</p>
-            <div class="row">
+            <img class="item" src="/img/civic.webp"/>
+            <p class="popis">Svižný japonec</p>
             <ul class="info">Rok výroby
-                <li>2002</li>
+                <li>2009</li>
             </ul>
                     <ul class="info">Motor
-                <li>TDI 1,9 Diesel
+                <li>TDI 2.2 Diesel (103 kw)
                 </li>
             </ul>
                     <ul class="info">Prevodovka
@@ -74,26 +70,25 @@
                 </li>
             </ul>
                     <ul class="info">Farba
-                <li>Modrá metalíza
+                <li>Čierna metalíza
                 </li>
             </ul>
-        </div>
-            <h3 class="cena">Cena: 2 000 € + 350 € opravy
+
+            <h3 class="cena">Cena: 2 300 € + opravy
             </h3>
-            <button value="2350" class="middle button-21">Vybrať</button>                 
+            <button value="2650" class="middle button-21">Vybrať</button>                 
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3>Mercedes A
-            </h3>
-            <img class="item" src="/images/car/mercedes.jpg"/>
+            <h3>BMW 3  (E90)</h3>
+            <img class="item" src="/img/bmw.jpg"/>
             <p class="popis">Keď treba zapôsobiť na kamošov</p>
-    <div class="row">
+    
             <ul class="info">Rok výroby
-                <li>2003
+                <li>2009
                 </li>
             </ul>
                     <ul class="info">Motor
-                <li>1,2 Benzín
+                <li>2.5r (160kw)
                 </li>
             </ul>
                     <ul class="info">Prevodovka
@@ -108,26 +103,50 @@
                 <li>Strieborná
                 </li>
             </ul>
-        </div>
-            <h3>Cena: 2 100 € + 500 € opravy
+            <h3 class="cena">Cena: 5 500 € + opravy
             </h3>
-            <button value="2600" class="middle button-21">Vybrať</button>                 
+            <button value="6000" class="middle button-21">Vybrať</button>                 
             </div>
         </div>
-        
-        <h2>Poistenie, pre prípad nehody</h2>
+        <h2>Opravy v prvom roku (zarátane už v cene)</h2>
         <div class="row">
         
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">PZP M
+            <h3>Škoda
             </h3>
-            <p class="popis">Povinné zmluvné poistenie balík M ti pokryje tieto škody:</p>
-            <div class="row">
+            
+            <h3 class="cena">Cena: 400 €</h3>                         
+            </div>
+            <div class="col-sm-12 col-md-4">
+            <h3>Honda
+            </h3>
+            
+            <h3 class="cena">Cena: 350 €
+            </h3>             
+            </div>
+            <div class="col-sm-12 col-md-4">
+            <h3>Bmw
+            </h3>
+            
+            <h3 class="cena">Cena: 500 €
+            </h3>             
+            </div>
+            </div>
+            <br>
+        <h2>Narafali? Na to tu je poistenie!</h2>
+                    <br>
+
+        <div class="row">
+        
+            <div class="col-sm-12 col-md-4">
+            <h3>PZP M
+            </h3>
+            <p class="popis">Povinné zmluvné poistenie balík M</p>
             <ul class="info">Škody na zdraví
-                <li>5 mil. €</li>
+                <li>2006</li>
             </ul>
                     <ul class="info">Škody na majetku
-                <li>1 mil. €
+                <li>CDTI 1,9 Diesel
                 </li>
             </ul>
                     <ul class="info">Základné asistenčné služby
@@ -135,7 +154,7 @@
                 </li>
             </ul>
                     <ul class="info">Výtlky
-                <li>-
+                <li>1 mil. €
                 </li>
             </ul>
                     <ul class="info">Hlodavce
@@ -161,15 +180,13 @@
                 <li>10,25 €
                 </li>
             </ul>
-        </div>
-            <h3>Cena: 123 €</h3>
+            <h3 class="cena">Cena: 123 € (ročne)</h3> 
             <button value="123" class="middle button-21">Vybrať</button>                             
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">PZP L
+            <h3>PZP L
             </h3>
-            <p class="popis">Povinné zmluvné poistenie balík L ti pokryje tieto škody:</p>
-            <div class="row">
+            <p class="popis">Povinné zmluvné poistenie balík L</p>
             <ul class="info">Škody na zdraví
                 <li>6 mil. €                </li>
             </ul>
@@ -208,16 +225,14 @@
                 <li>12,50 €
                 </li>
             </ul>
-        </div>
-            <h3>Cena: 150 €
+            <h3 class="cena">Cena: 150 € (ročne)
             </h3>
             <button value="150" class="middle button-21">Vybrať</button>                 
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">PZP XL
+            <h3>PZP XL
             </h3>
-            <p class="popis">Povinné zmluvne poistenie balík XL ti pokryje tieto škody:</p>
-            <div class="row">
+            <p class="popis">Povinné zmluvne poistenie balík XL</p>
             <ul class="info">Škody na zdraví
                 <li>10 mil. €                </li>
             </ul>
@@ -256,81 +271,85 @@
                 <li>15,83 €
                 </li>
             </ul>
-        </div>
-            <h3 >Cena: 190 €
+            <h3 class="cena">Cena: 190 € (ročne)
             </h3>
             <button value="190" class="middle button-21">Vybrať</button>                 
             </div>
         </div>
         <h2>Aby sa nešmýkalo, auto treba správne obuť</h2>
+        <br>
         <div class="row">
         
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">Letné pneu
+            <h3>Letné
             </h3>
-            <img class="item mobil" src="/images/car/road-g58a3701c5_1280.jpg"/>
+            <img class="item" src="/images/car/road-g58a3701c5_1280.jpg"/>
             <p class="popis">4 x 45 €</p>
 
-            <h3 >Cena: 180 €</h3>
+            <h3 class="cena">Cena: 180 €</h3>
             <button value="180" class="middle button-21">Vybrať</button>                             
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">Zimné pneu
+            <h3>Zimné
             </h3>
-            <img class="item mobil" src="/images/car/snow-ga06408acc_1920.jpg"/>
+            <img class="item" src="/images/car/snow-ga06408acc_1920.jpg"/>
             <p class="popis">4 x 49 €</p>
            
-            <h3 >Cena: 196 €
+            <h3 class="cena">Cena: 196 €
             </h3>
             <button value="150" class="middle button-21">Vybrať</button>                 
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">Celoročné pneu (letné + zimné)
+            <h3>Celoročné (letné + zimné)
             </h3>
-            <img class="item mobil" src="/images/car/seasons-of-the-year-g2d80f02aa_1280.jpg"/>
+            <img class="item" src="/images/car/seasons-of-the-year-g2d80f02aa_1280.jpg"/>
             <p class="popis">4 x 55 €</p>
-            <h3 >Cena: 220 €
+            <h3 class="cena">Cena: 220 €
             </h3>
             <button value="220" class="middle button-21">Vybrať</button>                 
             </div>
         </div>
-        <h2>Koľko najazdím mesačne?</h2>
+        <h2>Koľko najazdím km ročne?</h2>
         <div class="row">
         
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">300 km
-            <h3 >Cena: 30 €</h3>
-            <button value="30" class="middle button-21">Vybrať</button>                             
+            <h3>A
+            </h3>
+            <p class="popis">do 5000 km</p>
+
+            <h3 class="cena">Cena: 600 €</h3>
+            <button value="600" class="middle button-21">Vybrať</button>                             
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">600 km
+            <h3>B
             </h3>
-          
-            <h3 >Cena: 60 €
+            <p class="popis">5000 - 10 000 km</p>
+            <h3 class="cena">Cena: 1 200 €
             </h3>
-            <button value="150" class="middle button-21">Vybrať</button>                 
+            <button value="1200" class="middle button-21">Vybrať</button>                 
             </div>
             <div class="col-sm-12 col-md-4">
-            <h3 class="cena">900 km €
+            <h3>C
             </h3>
-            <h3 >Cena: 90 €
+            <p class="popis">15 000 km €</p>
+            <h3 class="cena">Cena: 1900 €
             </h3>
-            <button value="90" class="middle button-21">Vybrať</button>                 
+            <button value="1900" class="middle button-21">Vybrať</button>                 
             </div>
         </div>
         </div>
-        <div style="margin-bottom:2em"class="container">
-            <div class="row rowFinal">
-                <div class="col-md-6 col-sm-12">
-                    <button  id="vysledok" class="fa-solid fa-cart-shopping btn btn-2 btn-sep icon-cart" onclick="summary()"> Objednaj</button>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div id="display"></div>
-                </br>
-                    <div id="output"></div>
-                </div>
-            </div>
+
+<div style="margin-bottom:2em"class="container">
+    <div class="row rowFinal">
+        <div class="col-md-6 col-sm-12">
+            <div id="display"></div>
+            <div id="output"></div>
+        </div>
+            <div class="col-md-6 col-sm-12 " >
+            <button id="vysledok" class="col align-self-center fa-solid fa-cart-shopping btn btn-2 btn-sep icon-cart  " onclick="summary()"> Objednaj</button>
+        </div>
     </div>
+</div>
         <script src="code.js"></script>
         <script src="https://kit.fontawesome.com/5b37d795f3.js" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
