@@ -50,15 +50,12 @@
   transition: opacity 1s; 
 }
 .item{
-
-  width: auto;
+  width: 100%; /* alebo napr. 300px, ak chceš pevnú šírku */
+  max-width: 400px; /* obmedz šírku podľa potreby */
   height: 400px;
   object-fit: cover;
-  margin: 10px;
+  margin: 10px auto; /* centrovanie a odstup */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-
 }
 .middle{
     margin-top: 10px;
