@@ -56,7 +56,7 @@ bottom: 0px;
 }
 .item{
   width: 100%; /* alebo napr. 300px, ak chceš pevnú šírku */
-  max-width: 400px; /* obmedz šírku podľa potreby */
+  max-width: 500px; /* obmedz šírku podľa potreby */
   max-height: 600px;
   object-fit: containt;
   margin: 10px auto; /* centrovanie a odstup */
