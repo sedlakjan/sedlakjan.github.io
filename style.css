@@ -58,7 +58,7 @@ bottom: 0px;
   width: 100%; /* alebo napr. 300px, ak chceš pevnú šírku */
   max-width: 400px; /* obmedz šírku podľa potreby */
   height: 400px;
-  object-fit: cover;
+  object-fit: containt;
   margin: 10px auto; /* centrovanie a odstup */
   display: block;
 }
