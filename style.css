@@ -1,7 +1,3 @@
-.fa-arrow-left{
-  margin-bottom: 1em;
-  color:#0067ab
-}
 #display{
   text-align: center;
   height: 70px;
@@ -33,7 +29,6 @@
 }
 .info{
   font-weight: bold;
-  float: left;
 }
 .info li{
   font-weight:normal;
@@ -56,16 +51,15 @@
 }
 .item{
 
-  width: 100%;
-  height: 300px;
- 
+  width: auto;
+  height: 400px;
+  object-fit: cover;
   margin: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 
 }
-
 .middle{
     margin-top: 10px;
     display: block;
@@ -83,7 +77,10 @@
 h2{
   color:#149BF3;
 }
-
+h3{
+    
+    padding-bottom: 1em;
+}
 /* CSS */
 .button-21 {
 
@@ -214,7 +211,7 @@ button{
 .button-17:hover {
   background: #F6F9FE;
   color: #174ea6;
-  transform: scale(1.3); 
+  transform: scale(1.5); 
 }
 
 .button-17:active {
@@ -249,20 +246,7 @@ button{
 #vysledok{
 margin-top: 2em;
 }
-@media (min-width: 180px) {
-  #display{
-    font-size: 60px;
-  }
-  #vysledok{
-    margin-top: 0em;
-  }
-  .btn-2{
-    width: 100%;
-    font-size: 2em;
-  }
-  #output{
-    font-size: 15px;
-  }
+@media (min-width: 480px) {
   .center-screen {
       position: absolute;
       top: 40%;
@@ -271,41 +255,13 @@ margin-top: 2em;
       transform: translate(-50%, -50%);
       text-align: center;
     }
-    .center-screen .button-17{
-width: 100px;
-margin: 0px;
-    }
     #logo{
       position: absolute;
 right: 0px;
 bottom: 0px;
-width: 100px;
-z-index: -1;
     }
-    .mobil {
-      width: 10em;
-      height: 10em;
-      float: left;
-      max-width: 100%;
-      object-fit:scale-down;
-
-  }
-
   }
   @media (min-width: 768px) {
-    #display{
-      font-size: 80px;
-    }
-    #vysledok{
-      margin-top: 2em;
-    }
-    .btn-2{
-      width: auto;
-      font-size: 3em;
-    }
-    #output{
-      font-size: 20px;
-    }
     .center-screen {
         position: absolute;
         top: 40%;
@@ -313,28 +269,8 @@ z-index: -1;
         margin-right: -50%;
         transform: translate(-50%, -50%);
       }
-      .mobil{
-        width: 100%;
-        height: 350px;
-        object-fit:scale-down;
-      }
-      #logo{
-        position: absolute;
-  right: 0px;
-  bottom: 0px;
-  width: auto;
-  z-index: -1;
-      }
     }
     @media (min-width: 1024px) {
-      #display{
-        font-size: 100px;
-      }
-      .mobil{
-        width: 100%;
-        height: 350px;
-        object-fit:scale-down;
-      }
       .center-screen {
           position: absolute;
           top: 40%;
@@ -343,9 +279,165 @@ z-index: -1;
           transform: translate(-50%, -50%);
         }
         #logo{
-          width: auto;
           position: absolute;
 right: 0px;
 bottom: 0px;
         }
       }
+
+      .selected {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    /* Root variables for easy theming */
+:root {
+  --primary-color: #4285f4;
+  --secondary-color: #ffffff;
+  --bg-color: #f5f7fb;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --muted-color: #6b7280;
+  --radius: 0.5rem;
+  --transition-speed: 0.3s;
+  --font-family: 'Lato', sans-serif;
+}
+
+/* Global reset & typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 2rem 0;
+}
+#kosik{
+  position: fixed;
+  background-color: white;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+p {
+  margin-bottom: 1rem;
+}
+
+/* Container adjustments */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section titles */
+#change,
+h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Product/Vacation cards */
+.row > div[class*="col-"] {
+  margin-bottom: 2rem;
+}
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform var(--transition-speed);
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+.product-card .item {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+.product-card .popis {
+  color: var(--muted-color);
+  margin-bottom: 1rem;
+}
+.product-card .info {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.product-card .info li {
+  font-weight: 400;
+  color: var(--muted-color);
+}
+.product-card .cena {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+}
+.product-card button {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+.product-card button:hover {
+  background: #43a047;
+}
+.product-card button.selected {
+  background: #f44336;
+}
+
+/* Basket & Summary */
+.rowFinal {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+#display {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+#vysledok {
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-speed);
+}
+#vysledok:hover {
+  background: #43a047;
+}
+#output {
+  margin-top: 1rem;
+  color: var(--muted-color);
+}
+
+/* Utilities */
+.fade {
+  animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
