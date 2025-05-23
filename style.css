@@ -2,7 +2,7 @@
   text-align: center;
   height: 70px;
   line-height: 70px;
-  padding: 16px 8px;
+  padding: 0;
   font-size: 100px;
   color: #0067ab;
 }
@@ -316,11 +316,19 @@ body {
 }
 #kosik{
   position: fixed;
+  top: 0.5em;
+  right: 0.5em;
   background-color: white;
+  padding: 0.8em 1.2em;
+  border-radius: 999px; /* kruhový efekt – bublina */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  top: 0;
-  right: 0;
-  padding: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  color: black;
+  display: flex;
+  align-items: center;
+
 }
 h1, h2, h3 {
   color: var(--primary-color);
