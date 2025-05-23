@@ -447,3 +447,16 @@ h2 {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+div.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  margin: 0 auto;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+div.container {
+  text-align: center;
+
+}
