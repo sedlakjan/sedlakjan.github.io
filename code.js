@@ -24,29 +24,38 @@ function calculate() {
         polozky.splice(index, 1);
         this.classList.remove('selected');
     }
-
+cartBtn.disabled = false;  // odblokujeme tlačidlo
+objednane = false;         // resetujeme flag objednania
     updateTotal();
 }
 
-function updateTotal() {
-    const suma = polozky.reduce((acc, curr) => acc + curr, 0);
-    total.innerText = suma + ' €';
-    cartBtn.innerHTML = `<i></i> Objednaj (${suma} €)`;
+let objednane = false;  // flag, či už bolo objednané
 
+function updateTotal() {
+  const suma = polozky.reduce((acc, curr) => acc + curr, 0);
+  total.innerText = suma + ' €';
+
+  if (!objednane) {
+    cartBtn.innerHTML = `<i></i> Objednaj (${suma} €)`;
+  }
 }
 
-
 function summary() {
-    updateTotal(); 
-    const suma = polozky.reduce((acc, curr) => acc + curr, 0);
-  
-    if (suma === 0) {
-      // Keď ešte nie je v košíku žiadna položka
-      outputs.innerHTML = '<p><strong>Košík je prázdny:</strong> Vyber prosím nejaké produkty.</p>';
-    } else {
-      // Bežný výsledok nákupu
-      outputs.innerHTML = outputsText;
-    }
-    
-    outputs.classList.add('fade');
+  const suma = polozky.reduce((acc, curr) => acc + curr, 0);
+
+  if (suma === 0) {
+    outputs.innerHTML = '<p><strong>Košík je prázdny:</strong> Vyber prosím nejaké produkty.</p>';
+  } else {
+    outputs.innerHTML = outputsText;
+
+    objednane = true;
+    cartBtn.innerHTML = `✅ Suma na zaplatenie: ${suma} €`;
+
+    polozky = [];
+    buttons.forEach(button => button.classList.remove('selected'));
+
+    total.innerText = '0 €';  // nastav na nulu ručne
   }
+cartBtn.disabled = true;  // zablokujeme tlačidlo
+  outputs.classList.add('fade');
+}
