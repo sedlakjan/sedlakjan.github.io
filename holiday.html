@@ -10,15 +10,23 @@
 <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>    
-<a href="/index.html" style="text-decoration:none; color:#0067ab"><i class="fa-solid fa-arrow-left"></i> Späť na hlavné menu</a>
+        <a href="/index.html" style="text-decoration:none; color:#0067ab"><i class="fa-solid fa-arrow-left"></i> Späť na hlavné menu</a>
+
 <div style="padding-top:1em" class="container">
 
-    <h1 id="change">Ideme dovolenkovať!</h1>
-
-    <p>Plánujete ísť v lete s kamarátmi na dovolenku. Keďže ste ešte stredoškoláci a musíte myslieť na svoje možnosti, spravili ste si menší prieskum a vybrali tri možné destinácie. Vašou úlohou je vybrať si jednu z nich a zároveň sa rozhodnúť, čo všetko by mala vaša ideálna dovolenka obsahovať – okrem úplných základov.
-V časti „program na dovolenke...“ si označte, čo by na vašej vysnívanej dovolenke určite nemalo chýbať. Nezabudnite ani na cestovné poistenie – ak sa rozhodnete, že ho chcete, pridajte ho do nákladov.
-Na záver stačí stlačiť tlačidlo Objenať. Táto je suma,  je suma ktorú by ste si mali počas roka našetriť, aby ste si svoj plán mohli v lete splniť.</p>
-    <br>
+    <div class="container">
+        <h1 id="change">Ideš dovolenkovať!</h1>
+                <p style="text-align: justify;">Plánuješ ísť v lete s kamarátmi na dovolenku. Keďže si ešte stredoškolák a musíš myslieť na svoje možnosti, spravil si si menší prieskum a vybrali tri možné destinácie. 
+                    Tvoje úlohy:</p>
+                    <ul style="list-style-type: none;Text-align: justify;">
+                        <li>1. Vyber si jednu z destinácii </li>
+                        <li>2. Rozhodni sa, čo všetko by mala ideálna dovolenka ..obsahovať – okrem úplných základov. </li>
+                        <li>3. Nezabudni ani na cestovné poistenie. </li>
+                        <li>4. Nakoniec objednaj dovolenku tlačidlom Objednaj</li>
+                    </ul>
+                   <P style="text-align: justify;">Výsledná suma  je suma, ktorú by si mali počas roka našetriť, aby si si svoj plán mohol v lete splniť.</P> 
+    </div>
+<br>
     <div id="kosik">
     🛒<span id="display">0 €</span>
   </div>
@@ -173,20 +181,23 @@ Na záver stačí stlačiť tlačidlo Objenať. Táto je suma,  je suma ktorú b
                 <button value="30" class="middle button-21">Vybrať</button>    
             </div>
         </div>
-        <div class="row">
+        
             <div class="col-sm-12 col-md-4">
                 <h3>Výlet so sprievodcom</h3>
                 <img class="item" src="/images/croatia/map-g5f83b89d0_1920.jpg"/>
                 <p class="popis">Spoznaj aj historické zákutia svojej dovolenky s jedinečným výkladom</p>    
                 <h3 class="cena">Cena: 70 €</h3>
                 <button value="70" class="middle button-21">Vybrať</button>     
-            </div>
+          
+        </div>
+        <h2>Nespoliehaj sa, že sa nič nestane</h2>
+        <div class="row">
             <div class="col-sm-12 col-md-4">
                 <h3>Vreckové</h3>
                 <img class="item" src="/images/croatia/golden-ge239cdebe_1920.jpg"/>
-                <p class="popis">Magnetka na chladničku pre mamu a tričko so srdiečkom pre brata</p>    
-                <h3 class="cena">Cena: 100 €</h3>
-                <button value="100" class="middle button-21">Vybrať</button>    
+                <p class="popis">Magnetka na chladničku pre mamu a tričko so srdiečkom pre brata. Alebo len tak pre istotu</p>    
+                <h3 class="cena">Cena: 200 €</h3>
+                <button value="200" class="middle button-21">Vybrať</button>    
             </div>
             <div class="col-sm-12 col-md-4">
                 <h3>Poistenie</h3>
@@ -195,17 +206,20 @@ Na záver stačí stlačiť tlačidlo Objenať. Táto je suma,  je suma ktorú b
                 <h3 class="cena">Cena: 30 €</h3>
                 <button value="30" class="middle button-21">Vybrať</button>  
             </div>
+            </div>
         </div>
     </div>
-<div style="margin-bottom:2em"class="container">
+
+
+
+
+
+<div class="container">
     <div class="row rowFinal">
         <div class="col-md-6 col-sm-12">
-            <div id="display"></div>
+            <button id="vysledok" class="col align-self-center fa-solid btn btn-2 btn-sep btn btn-primary d-block mx-auto" onclick="summary()"> Objednaj</button>
+        </div>
             <div id="output"></div>
-        </div>
-            <div class="col-md-6 col-sm-12 " >
-            <button id="vysledok" class="col align-self-center fa-solid btn btn-2 btn-sep" onclick="summary()"> Objednaj</button>
-        </div>
     </div>
 </div>
     <script src="code.js"></script>
