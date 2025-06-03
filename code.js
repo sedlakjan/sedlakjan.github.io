@@ -5,7 +5,7 @@ let polozky = [];
 let cartBtn   = document.getElementById('vysledok'); // 🚀 nový riadok
 
 
-const outputsText = '<p>Gratulujeme k úspešnému nákupu a vytvoreniu finančného cieľa :) Teraz si sumu tvojho nákupu zapíš na papier. Ďalej si budeš musieť na svoj cieľ zarobiť. Klikni na: <a href="https://www.brigady.sk" target="_blank">BRIGADY.SK</a> alebo <a href="https://www.profesia.sk" target="_blank">PROFESIA.SK</a>, kde si nájdeš brigádu v tvojom okolí. Následne postupuj podľa pokynov na papieri. <br>Veľa šťastia :)!</br></p>';
+const outputsText = '<p>Gratulujeme k úspešnému nákupu a vytvoreniu finančného cieľa :) Teraz si sumu Tvojho nákupu zapíš na papier. Ďalej si budeš musieť na svoj cieľ zarobiť. Klikni na: <a href="https://www.brigady.sk" target="_blank">BRIGADY.SK</a> alebo <a href="https://www.profesia.sk" target="_blank">PROFESIA.SK</a>, kde si nájdeš brigádu v Tvojom okolí. Následne postupuj podľa pokynov na papieri. <br>Veľa šťastia! :)</br></p>';
 
 buttons.forEach(button => {
     button.addEventListener('click', calculate);
