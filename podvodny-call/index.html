@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulovaný podvodný hovor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --fg: #e5e7eb;
+      --accent: #22c55e;
+      --danger: #ef4444;
+      --muted: #64748b;
+      --border: #1f2937;
+      --shadow: 0 20px 40px rgba(0,0,0,0.6);
+      --radius-lg: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--fg);
+    }
+
+    .phone-frame {
+      width: min(360px, 100vw - 32px);
+      height: 720px;
+      max-height: 90vh;
+      background: #020617;
+      border-radius: 40px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148,163,184,0.18);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-notch {
+      width: 110px;
+      height: 26px;
+      border-radius: 0 0 20px 20px;
+      background: #020617;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .phone-inner {
+      margin-top: 32px;
+      flex: 1;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #020617 100%);
+      border: 1px solid rgba(148,163,184,0.2);
+      padding: 20px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .status-right {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .signal-bar {
+      width: 3px;
+      height: 9px;
+      background: var(--muted);
+      border-radius: 99px;
+    }
+    .signal-bar:nth-child(2) { height: 11px; }
+    .signal-bar:nth-child(3) { height: 13px; }
+    .signal-bar:nth-child(4) { height: 15px; }
+    .signal-bar:nth-child(5) { height: 17px; background: #22c55e; }
+
+    .battery {
+      width: 20px;
+      height: 10px;
+      border-radius: 3px;
+      border: 1px solid var(--muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .battery::after {
+      content: "";
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      bottom: 1px;
+      left: 5px;
+      background: #22c55e;
+    }
+
+    .screen {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px;
+      padding-top: 4em;
+    }
+
+    .label-small {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .caller-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, #22c55e 0, #16a34a 40%, #15803d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: white;
+      box-shadow: 0 12px 30px rgba(34,197,94,0.5);
+      position: relative;
+    }
+
+    .pulse-ring {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: inherit;
+      border: 1px solid rgba(34,197,94,0.5);
+      opacity: 0.7;
+      animation: pulse 1.6s ease-out infinite;
+      
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      70% { transform: scale(1.12); opacity: 0; }
+      100% { transform: scale(1.12); opacity: 0; }
+    }
+
+    .caller-name {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .caller-sub {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .call-timer {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .helper-text {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 260px;
+    }
+
+    .helper-text b {
+      color: #e5e7eb;
+    }
+
+    .call-controls {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 150px;
+    }
+
+    .circle-btn {
+      width: 68px;
+      height: 68px;
+      border-radius: 999px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    }
+
+    .circle-btn.green {
+      background: radial-gradient(circle at top, #22c55e 0, #16a34a 40%, #15803d 100%);
+    }
+
+    .circle-btn.red {
+      background: radial-gradient(circle at top, #ef4444 0, #dc2626 40%, #b91c1c 100%);
+    }
+
+    .circle-label {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .bottom-bar {
+      margin-top: auto;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid var(--border);
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .big-btn {
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(to right, #22c55e, #16a34a);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(22,163,74,0.5);
+    }
+
+    .big-btn .icon {
+      font-size: 18px;
+    }
+
+    .missed-label {
+      color: #f97316;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="phone-inner">
+      <div class="status-bar">
+        <div class="status-right">
+          <div style="display:flex; gap:2px;">
+          </br></br></br>
+
+        </div>
+      </div>
+
+      <!-- Obrazovka – obsah generuje JS -->
+      <div id="screen" class="screen">
+        <div class="label-small">Načítava sa simulácia hovoru...</div>
+      </div>
+
+      <!-- Audio prvky -->
+      <audio id="ringtone" src="ring.mp3" preload="auto"></audio>
+      <audio id="callAudio" src="call.mp3" preload="auto"></audio>
+    </div>
+  </div>
+
+  <script>
+    const screenEl = document.getElementById("screen");
+    const ringtone = document.getElementById("ringtone");
+    const callAudio = document.getElementById("callAudio");
+
+    let callTimerInterval = null;
+    let callSeconds = 0;
+    let inCall = false;
+    let simulationStarted = false;
+
+    ringtone.loop = true;
+
+    function vibratePattern(pattern) {
+      if ("vibrate" in navigator) {
+        navigator.vibrate(pattern);
+      }
+    }
+
+    function stopVibration() {
+      if ("vibrate" in navigator) {
+        navigator.vibrate(0);
+      }
+    }
+
+    function formatTime(seconds) {
+      const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
+      return `${m}:${s}`;
+    }
+
+    function renderIncomingScreen() {
+      screenEl.className = "screen incoming-screen";
+      screenEl.innerHTML = `
+        <div class="label-small">Prichádzajúci hovor</div>
+        <div class="caller-avatar">
+          <div class="pulse-ring"></div>
+          <span>€</span>
+        </div>
+        <div class="caller-name">Vaša banka</div>
+        <div class="caller-sub">Neznáme číslo</div>
+        <div class="helper-text">
+          
+        </div>
+
+        <div class="call-controls">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <button class="circle-btn red" id="btnDecline">✕</button>
+            <div class="circle-label">Odmietnuť</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <button class="circle-btn green" id="btnAnswer">📞</button>
+            <div class="circle-label">Zdvihnúť</div>
+          </div>
+        </div>
+
+
+      `;
+
+      document.getElementById("btnAnswer").addEventListener("click", startCall);
+      document.getElementById("btnDecline").addEventListener("click", declineCall);
+    }
+
+    function renderInCallScreen() {
+      screenEl.className = "screen in-call-screen";
+      screenEl.innerHTML = `
+        <div class="label-small">Prebiehajúci hovor</div>
+        <div class="caller-avatar">
+          <span>€</span>
+        </div>
+        <div class="caller-name">Vaša banka</div>
+        <div class="call-timer" id="callTimer">00:00</div>
+ 
+
+        <div class="call-controls">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <button class="circle-btn red" id="btnEndCall">⏹</button>
+            <div class="circle-label">Ukončiť</div>
+          </div>
+        </div>
+
+
+      `;
+
+      document.getElementById("btnEndCall").addEventListener("click", endCall);
+
+      const timerEl = document.getElementById("callTimer");
+      callSeconds = 0;
+      if (callTimerInterval) clearInterval(callTimerInterval);
+      callTimerInterval = setInterval(() => {
+        callSeconds++;
+        timerEl.textContent = formatTime(callSeconds);
+      }, 1000);
+    }
+
+    function renderMissedCallScreen() {
+      screenEl.className = "screen missed-screen";
+      screenEl.innerHTML = `
+        <div class="missed-label">Zmeškaný simulovaný hovor</div>
+        <div class="caller-avatar">
+          <span>€</span>
+        </div>
+        <div class="caller-name">Vaša banka</div>
+        <div class="caller-sub">Pred chvíľou volal</div>
+        <div class="helper-text">
+          V reálnom živote je <b>odmietnutie hovoru</b> alebo <b>položenie</b> tiež úplne v poriadku.  
+          Ak si nie ste istí, radšej si číslo <b>overte</b> cez oficiálny kontakt.
+        </div>
+
+        <button id="btnAgain" class="big-btn">
+          <span class="icon">🔁</span>
+          <span>Spustiť simuláciu znova</span>
+        </button>
+
+        <div class="bottom-bar">
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <span>Najprv STOP, až potom rieš.</span>
+          </div>
+          <div>Skúste si nabudúce hovor “zdvihnúť” a vyskúšať, ako by ste reagovali.</div>
+        </div>
+      `;
+
+      document.getElementById("btnAgain").addEventListener("click", startSimulation);
+    }
+
+async function startSimulation() {
+  // túto podmienku úplne vyhoď, nech sa to dá spustiť znova
+  // if (simulationStarted) return;
+  simulationStarted = true; // môžeš nechať alebo aj zmazať
+
+  renderIncomingScreen();
+
+  try {
+    ringtone.currentTime = 0;
+    await ringtone.play();
+  } catch (err) {
+    console.warn("Nemôžem prehrať ringtone (autoplay blok):", err);
+  }
+
+  vibratePattern([200, 150, 200, 150, 200]);
+}
+
+    async function startCall() {
+      inCall = true;
+      stopVibration();
+
+      ringtone.pause();
+      ringtone.currentTime = 0;
+
+      renderInCallScreen();
+
+      try {
+        callAudio.currentTime = 0;
+        callAudio.volume = 1.0;
+        await callAudio.play();
+      } catch (err) {
+        console.error("CHYBA pri prehrávaní callAudio:", err);
+        alert("Nepodarilo sa prehrať nahrávku hovoru: " + err.message);
+      }
+    }
+
+    function declineCall() {
+      inCall = false;
+      stopVibration();
+      ringtone.pause();
+      ringtone.currentTime = 0;
+      renderMissedCallScreen();
+    }
+
+    function endCall() {
+      inCall = false;
+      stopVibration();
+      callAudio.pause();
+      if (callTimerInterval) clearInterval(callTimerInterval);
+      renderMissedCallScreen();
+    }
+
+    // Automaticky spusti simuláciu po načítaní stránky
+    window.addEventListener("load", () => {
+      setTimeout(startSimulation, 200);
+    });
+
+    // Fallback pri odchode zo stránky
+    window.addEventListener("pagehide", () => {
+      stopVibration();
+      ringtone.pause();
+      callAudio.pause();
+    });
+  </script>
+</body>
+</html>
