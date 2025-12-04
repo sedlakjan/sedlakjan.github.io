@@ -566,18 +566,27 @@
         timerEl.textContent = formatTime(callSeconds);
       }, 1000);
 
-      document.getElementById("btnEndCall").addEventListener("click", () => {
+document.getElementById("btnEndCall").addEventListener("click", () => {
   if (state === "in_call_bank") {
-    // 👇 ručné zloženie banky = simulovaný hovor ukončený
     userEndedBankCall();
   } else if (state === "in_call_police_phase1") {
     userEndedPolicePhase1();
   } else if (state === "in_call_police_phase2") {
-    userEndedPolicePhase2();
+    userEndedPolicePhase2(); // ak ju používaš, inak môže byť len userEndedPolicePhase1
   }
 });
     }
+function userEndedPolicePhase1() {
+  clearTimers();
+  try { callPolice1.pause(); } catch (e) {}
 
+  try {
+    endTone.currentTime = 0;
+    endTone.play().catch(() => {});
+  } catch (err) {}
+
+  renderMissedScreen();
+}
     function renderMissedScreen() {
       screenEl.innerHTML = `
         <div class="missed-label">Simulovaný hovor ukončený</div>
@@ -950,6 +959,7 @@ function finishPoliceCallPhase1() {
   </script>
 </body>
 </html>
+
 
 
 
