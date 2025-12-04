@@ -427,8 +427,8 @@
         <audio id="ringtone" src="ring.mp3" preload="auto"></audio>
         <audio id="endTone" src="end.mp3" preload="auto"></audio>
         <audio id="callBank" src="bank.mp3" preload="auto"></audio>
-        <audio id="callPolice" src="police.mp3" preload="auto"></audio>
-        <audio id="installAudio" src="install.mp3" preload="auto"></audio>
+        <audio id="callPolice1" src="police1.mp3" preload="auto"></audio>
+        <audio id="callPolice2" src="police2.mp3" preload="auto"></audio>
       </div>
 
       <div id="modalHost"></div>
@@ -443,8 +443,8 @@
     const ringtone = document.getElementById("ringtone");
     const endTone = document.getElementById("endTone");
     const callBank = document.getElementById("callBank");
-    const callPolice = document.getElementById("callPolice");
-    const installAudio = document.getElementById("installAudio");
+    const callPolice1 = document.getElementById("callPolice1");
+    const callPolice2 = document.getElementById("callPolice2");
 
     ringtone.loop = true;
 
@@ -518,7 +518,7 @@
 
       document.getElementById("btnAnswer").addEventListener("click", () => {
         if (state === "incoming_bank") startBankCall();
-        else if (state === "incoming_police") startPoliceCall();
+        else if (state === "incoming_police") startPoliceCallPhase1();
       });
 
       document.getElementById("btnDecline").addEventListener("click", () => {
@@ -569,8 +569,10 @@
       document.getElementById("btnEndCall").addEventListener("click", () => {
         if (state === "in_call_bank") {
           finishBankCall();
-        } else if (state === "in_call_police") {
-          finishPoliceCall();
+        } else if (state === "in_call_police_phase1") {
+          finishPoliceCallPhase1();
+        } else if (state === "in_call_police_phase2") {
+          finishPoliceCallPhase2();
         }
       });
     }
@@ -605,7 +607,7 @@
             <div class="modal-title">Bezpečnostná aplikácia</div>
             <div class="modal-text">
               Policajt tvrdí, že pre kontrolu účtu potrebujete nainštalovať špeciálnu aplikáciu.
-              Chce, aby ste ju stiahli práve teraz.
+              Hovorí, že sa vám na obrazovke objaví možnosť „stiahnuť aplikáciu“.
             </div>
             <div class="modal-actions">
               <button class="btn-text" id="btnCancelDownload">Zrušiť</button>
@@ -636,9 +638,10 @@
         <div class="caller-avatar police">
           <span>📲</span>
         </div>
-        <div class="caller-name">Bezpečnostná aplikácia</div>
+        <div class="caller-name">„Bezpečnostná aplikácia“</div>
         <div class="helper-text">
-          „Na obrazovke by sa vám malo zobraziť vaše ID. Nadiktujte mi ho, aby sme mohli skontrolovať podozrivé transakcie.“
+          Aplikácia sa tvári ako nástroj na ochranu účtu.  
+          Toto je len prvý krok. Podvod funguje až vtedy, keď neskôr nadiktujete svoje ID alebo kód.
         </div>
         <div class="progress-wrapper">
           <div class="progress-bar" id="progressBar"></div>
@@ -658,13 +661,6 @@
       const label = document.getElementById("progressLabel");
       let progress = 0;
 
-      try {
-        installAudio.currentTime = 0;
-        installAudio.play().catch(() => {});
-      } catch (err) {
-        console.warn("Install audio error:", err);
-      }
-
       progressInterval = setInterval(() => {
         progress += 4;
         if (progress > 100) progress = 100;
@@ -674,25 +670,83 @@
         if (progress >= 100) {
           clearInterval(progressInterval);
           progressInterval = null;
-          installAudio.pause();
-          showFinalAlert();
+          startPoliceIdPhase();
         }
       }, 250);
     }
 
-    function showFinalAlert() {
+    function startPoliceIdPhase() {
+      state = "in_call_police_phase2";
+      clearTimers();
+      stopVibration();
+
+      screenEl.innerHTML = `
+        <div class="label-small">Aplikácia je nainštalovaná</div>
+        <div class="caller-avatar police">
+          <span>👮</span>
+        </div>
+        <div class="caller-name">Polícia SR</div>
+        <div class="helper-text">
+          Policajt teraz tvrdí, že na obrazovke vidíte svoje <b>ID</b> a máte mu ho nadiktovať, 
+          aby mohol „chrániť váš účet“.
+        </div>
+
+        <div class="call-controls">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <button class="circle-btn green" id="btnGiveId">🔐</button>
+            <div class="circle-label">Nadiktovať ID</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <button class="circle-btn red" id="btnRefuseId">✋</button>
+            <div class="circle-label">Odmietnuť</div>
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <span>Toto je kľúčový moment – rozhoduješ, či podvodník získa prístup.</span>
+          </div>
+          <div>Aj po inštalácii aplikácie sa ešte stále dá povedať NIE.</div>
+        </div>
+      `;
+
+      try {
+        callPolice2.currentTime = 0;
+        callPolice2.play().catch(err => {
+          console.error("Chyba pri prehrávaní police2 hovoru:", err);
+        });
+      } catch (err) {
+        console.error("Police2 audio error:", err);
+      }
+
+      document.getElementById("btnGiveId").addEventListener("click", () => {
+        showFinalAlert(true);
+      });
+
+      document.getElementById("btnRefuseId").addEventListener("click", () => {
+        showFinalAlert(false);
+      });
+    }
+
+    function showFinalAlert(gaveId) {
+      const text = gaveId
+        ? `Tým, že ste nadiktovali svoje „ID“, ste podvodníkovi umožnili prístup k svojmu zariadeniu a účtu. 
+           V realite by tak mohol vidieť, čo robíte v mobile, a preberať kontrolu nad internet bankingom.`
+        : `Aj keď ste aplikáciu nainštalovali, tým, že ste odmietli nadiktovať ID/kód, 
+           ste podvodníkom zastavili prístup. Kľúčové je povedať STOP v správny moment.`;
+
       modalHost.innerHTML = `
         <div class="modal-backdrop">
           <div class="modal">
-            <div class="modal-title">Pozor, toto bol podvod</div>
+            <div class="modal-title">${gaveId ? "Podvod sa podaril" : "Podvod ste zastavili"}</div>
             <div class="modal-text">
-              Aplikácie na „záchranu účtu“ sú častý trik podvodníkov.
-              Cez ne získajú prístup k vášmu mobilu a internet bankingu.
+              ${text}
             </div>
             <ul style="padding-left:18px; margin:6px 0 10px; color:${getComputedStyle(document.body).getPropertyValue('--muted')}; font-size:13px;">
-              <li>Skutočná banka ani polícia nikdy nežiadajú inštaláciu aplikácie cez telefonát.</li>
-              <li>Nediktujte ID, kódy ani heslá cudzím ľuďom.</li>
-              <li>Vždy sa riaďte pravidlom: <b>SOS – Spomaľ, Over, Spoj sa.</b></li>
+              <li>Podvodníci často kombinujú viac krokov: hovor, aplikácia, ID/kód.</li>
+              <li>Každý ďalší krok im dáva viac kontroly nad vaším účtom.</li>
+              <li>Pravidlo SOS – Spomaľ, Over, Spoj sa – môžete použiť v ktorejkoľvek fáze.</li>
             </ul>
             <div class="modal-actions">
               <button class="btn-solid" id="btnFinalOk">Rozumiem</button>
@@ -724,7 +778,7 @@
             <li>volajú ako „banka“ alebo „polícia“,</li>
             <li>tvrdia, že musíte konať hneď,</li>
             <li>chcú od vás kódy, heslá alebo inštaláciu aplikácie,</li>
-            <li>zakazujú, aby ste sa poradili s rodinou.</li>
+            <li>postupujú po krokoch – aby ste si nevšimli, kam to smeruje.</li>
           </ul>
           <p><b>Zapamätajte si SOS:</b></p>
           <ul>
@@ -786,7 +840,9 @@
       }
 
       callBank.onended = () => {
-        finishBankCall();
+        if (state === "in_call_bank") {
+          finishBankCall();
+        }
       };
     }
 
@@ -826,30 +882,32 @@
       playRingtone();
     }
 
-    function startPoliceCall() {
-      state = "in_call_police";
+    function startPoliceCallPhase1() {
+      state = "in_call_police_phase1";
       stopVibration();
       ringtone.pause();
       ringtone.currentTime = 0;
       renderInCallScreen({ name: "Polícia SR", isPolice: true });
 
       try {
-        callPolice.currentTime = 0;
-        callPolice.play().catch(err => {
-          console.error("Chyba pri prehrávaní police hovoru:", err);
+        callPolice1.currentTime = 0;
+        callPolice1.play().catch(err => {
+          console.error("Chyba pri prehrávaní police1 hovoru:", err);
         });
       } catch (err) {
-        console.error("Police audio error:", err);
+        console.error("Police1 audio error:", err);
       }
 
-      callPolice.onended = () => {
-        finishPoliceCall();
+      callPolice1.onended = () => {
+        if (state === "in_call_police_phase1") {
+          finishPoliceCallPhase1();
+        }
       };
     }
 
-    function finishPoliceCall() {
+    function finishPoliceCallPhase1() {
       clearTimers();
-      callPolice.pause();
+      callPolice1.pause();
       try {
         endTone.currentTime = 0;
         endTone.play().catch(() => {});
@@ -861,7 +919,7 @@
         </div>
         <div class="caller-name">Polícia SR</div>
         <div class="helper-text">
-          Podvodníci sa často hrajú na políciu a snažia sa vás dotlačiť k ďalším krokom – napríklad k inštalácii „bezpečnostnej aplikácie“.
+          Podvodníci sa často hrajú na políciu a pripravujú vás na ďalší krok – napríklad na inštaláciu „bezpečnostnej aplikácie“.
         </div>
         <button class="primary-btn" id="btnShowDownload">
           <span class="icon">📲</span>
@@ -874,6 +932,11 @@
       });
     }
 
+    function finishPoliceCallPhase2() {
+      // teoreticky by sme toto mohli použiť, ale teraz ideme cez buttons GiveId/RefuseId
+      // nechávam prázdne pre prípadné budúce rozšírenie
+    }
+
     window.addEventListener("load", () => {
       setTimeout(startIncomingBankCall, 200);
     });
@@ -883,9 +946,10 @@
       clearTimers();
       ringtone.pause();
       callBank.pause();
-      callPolice.pause();
-      installAudio.pause();
+      callPolice1.pause();
+      callPolice2.pause();
     });
   </script>
 </body>
 </html>
+
