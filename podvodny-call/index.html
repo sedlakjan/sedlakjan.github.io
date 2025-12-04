@@ -567,14 +567,15 @@
       }, 1000);
 
       document.getElementById("btnEndCall").addEventListener("click", () => {
-        if (state === "in_call_bank") {
-          finishBankCall();
-        } else if (state === "in_call_police_phase1") {
-          finishPoliceCallPhase1();
-        } else if (state === "in_call_police_phase2") {
-          finishPoliceCallPhase2();
-        }
-      });
+  if (state === "in_call_bank") {
+    // 👇 ručné zloženie banky = simulovaný hovor ukončený
+    userEndedBankCall();
+  } else if (state === "in_call_police_phase1") {
+    userEndedPolicePhase1();
+  } else if (state === "in_call_police_phase2") {
+    userEndedPolicePhase2();
+  }
+});
     }
 
     function renderMissedScreen() {
@@ -845,7 +846,18 @@
         }
       };
     }
+function userEndedBankCall() {
+  clearTimers();
+  try { callBank.pause(); } catch (e) {}
 
+  try {
+    endTone.currentTime = 0;
+    endTone.play().catch(() => {});
+  } catch (err) {}
+
+  // rovnaká obrazovka ako pri odmietnutí / zložení hovoru
+  renderMissedScreen();
+}
     function finishBankCall() {
       clearTimers();
       callBank.pause();
@@ -905,32 +917,18 @@
       };
     }
 
-    function finishPoliceCallPhase1() {
-      clearTimers();
-      callPolice1.pause();
-      try {
-        endTone.currentTime = 0;
-        endTone.play().catch(() => {});
-      } catch (err) {}
-      screenEl.innerHTML = `
-        <div class="label-small">Hovor ukončený</div>
-        <div class="caller-avatar police">
-          <span>👮</span>
-        </div>
-        <div class="caller-name">Polícia SR</div>
-        <div class="helper-text">
-          Podvodníci sa často hrajú na políciu a pripravujú vás na ďalší krok – napríklad na inštaláciu „bezpečnostnej aplikácie“.
-        </div>
-        <button class="primary-btn" id="btnShowDownload">
-          <span class="icon">📲</span>
-          <span>Pokračovať</span>
-        </button>
-      `;
+function finishPoliceCallPhase1() {
+  clearTimers();
+  callPolice1.pause();
+  try {
+    endTone.currentTime = 0;
+    endTone.play().catch(() => {});
+  } catch (err) {}
 
-      document.getElementById("btnShowDownload").addEventListener("click", () => {
-        showDownloadModal();
-      });
-    }
+  // ❗ žiadna medzistránka, rovno modálne okno
+  showDownloadModal();
+}
+
 
     function finishPoliceCallPhase2() {
       // teoreticky by sme toto mohli použiť, ale teraz ideme cez buttons GiveId/RefuseId
@@ -952,5 +950,6 @@
   </script>
 </body>
 </html>
+
 
 
