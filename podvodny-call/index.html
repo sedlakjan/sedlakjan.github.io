@@ -492,9 +492,7 @@
         </div>
         <div class="caller-name">${name}</div>
         <div class="caller-number">${number}</div>
-        <div class="helper-text">
-          Všímajte si, čo volajúci chce. Pýtajte sa, <b>prečo</b> volá a <b>čo od vás žiada</b>.
-        </div>
+
 
         <div class="call-controls">
           <div style="display:flex; flex-direction:column; align-items:center;">
@@ -508,10 +506,7 @@
         </div>
 
         <div class="bottom-bar">
-          <div class="pill">
-            <div class="pill-dot"></div>
-            <span>SOS: Spomaľ – Over – Spoj sa.</span>
-          </div>
+          
           <div>Skúste reagovať, akoby to bol naozaj váš hovor.</div>
         </div>
       `;
@@ -555,7 +550,7 @@
             <div class="pill-dot"></div>
             <span>Neprezrádzajte SMS kódy ani údaje karty.</span>
           </div>
-          <div>Môžete hovor kedykoľvek ukončiť.</div>
+          <div>Môžeš hovor kedykoľvek ukončiť.</div>
         </div>
       `;
 
@@ -614,10 +609,10 @@ function userEndedPolicePhase1() {
       modalHost.innerHTML = `
         <div class="modal-backdrop">
           <div class="modal">
-            <div class="modal-title">Bezpečnostná aplikácia</div>
+            <div class="modal-title">ANIDESK aplikácia</div>
             <div class="modal-text">
-              Policajt tvrdí, že pre kontrolu účtu potrebujete nainštalovať špeciálnu aplikáciu.
-              Hovorí, že sa vám na obrazovke objaví možnosť „stiahnuť aplikáciu“.
+              Policajt tvrdí, že pre kontrolu účtu potrebuješ nainštalovať špeciálnu aplikáciu.
+              Klikni na tlačidlo stiahnúť“.
             </div>
             <div class="modal-actions">
               <button class="btn-text" id="btnCancelDownload">Zrušiť</button>
@@ -648,10 +643,9 @@ function userEndedPolicePhase1() {
         <div class="caller-avatar police">
           <span>📲</span>
         </div>
-        <div class="caller-name">„Bezpečnostná aplikácia“</div>
+        <div class="caller-name">„ANIDESK aplikácia“</div>
         <div class="helper-text">
-          Aplikácia sa tvári ako nástroj na ochranu účtu.  
-          Toto je len prvý krok. Podvod funguje až vtedy, keď neskôr nadiktujete svoje ID alebo kód.
+          Po nainštalovaní aplikácie sa ti zjaví kód.
         </div>
         <div class="progress-wrapper">
           <div class="progress-bar" id="progressBar"></div>
@@ -697,8 +691,7 @@ function userEndedPolicePhase1() {
         </div>
         <div class="caller-name">Polícia SR</div>
         <div class="helper-text">
-          Policajt teraz tvrdí, že na obrazovke vidíte svoje <b>ID</b> a máte mu ho nadiktovať, 
-          aby mohol „chrániť váš účet“.
+          Tvoje ID číslo je 123123. Rozhodni sa či mu ho nadiktuješ alebo nie.
         </div>
 
         <div class="call-controls">
@@ -741,10 +734,10 @@ function userEndedPolicePhase1() {
 
     function showFinalAlert(gaveId) {
       const text = gaveId
-        ? `Tým, že ste nadiktovali svoje „ID“, ste podvodníkovi umožnili prístup k svojmu zariadeniu a účtu. 
-           V realite by tak mohol vidieť, čo robíte v mobile, a preberať kontrolu nad internet bankingom.`
-        : `Aj keď ste aplikáciu nainštalovali, tým, že ste odmietli nadiktovať ID/kód, 
-           ste podvodníkom zastavili prístup. Kľúčové je povedať STOP v správny moment.`;
+        ? `Tým, že si nadiktoval svoje „ID“, ste podvodníkovi umožnili prístup k svojmu zariadeniu a účtu. 
+           V realite by tak mohol vidieť, čo robíš v mobile, a preberať kontrolu nad internet bankingom.`
+        : `Aj keď si aplikáciu nainštaloval, tým, že si odmietol nadiktovať ID/kód, 
+           si podvodníkom zastavili prístup. Kľúčové je povedať STOP v správny moment.`;
 
       modalHost.innerHTML = `
         <div class="modal-backdrop">
@@ -755,8 +748,8 @@ function userEndedPolicePhase1() {
             </div>
             <ul style="padding-left:18px; margin:6px 0 10px; color:${getComputedStyle(document.body).getPropertyValue('--muted')}; font-size:13px;">
               <li>Podvodníci často kombinujú viac krokov: hovor, aplikácia, ID/kód.</li>
-              <li>Každý ďalší krok im dáva viac kontroly nad vaším účtom.</li>
-              <li>Pravidlo SOS – Spomaľ, Over, Spoj sa – môžete použiť v ktorejkoľvek fáze.</li>
+              <li>Každý ďalší krok im dáva viac kontroly nad tvojím účtom.</li>
+              <li>Používaj pri hovoroch pravidlo STOP.</li>
             </ul>
             <div class="modal-actions">
               <button class="btn-solid" id="btnFinalOk">Rozumiem</button>
@@ -781,7 +774,7 @@ function userEndedPolicePhase1() {
         <div class="caller-avatar">
           <span>🧠</span>
         </div>
-        <div class="caller-name">Čo ste si všimli?</div>
+        <div class="caller-name">Čo sme sa naučili?</div>
         <div class="final-tips">
           <p><b>Podvodníci často:</b></p>
           <ul>
@@ -789,8 +782,9 @@ function userEndedPolicePhase1() {
             <li>tvrdia, že musíte konať hneď,</li>
             <li>chcú od vás kódy, heslá alebo inštaláciu aplikácie,</li>
             <li>postupujú po krokoch – aby ste si nevšimli, kam to smeruje.</li>
+            <li>chcú aby sme o tom nikomu nehovorili.</li>
           </ul>
-          <p><b>Zapamätajte si SOS:</b></p>
+          <p><b>Zapamätaj si STOP:</b></p>
           <ul>
             <li><b>Spomaľ</b> – nereaguj hneď.</li>
             <li><b>Over</b> – zavolaj na oficiálne číslo banky alebo polície.</li>
@@ -881,8 +875,7 @@ function userEndedBankCall() {
         </div>
         <div class="caller-name">Vaša banka</div>
         <div class="helper-text">
-          Teraz nastane krátka pauza.  
-          V podvodoch často po „banke“ volá ďalší človek – napríklad „polícia“.
+          Čakaj na hovor od policajta
         </div>
       `;
       setTimeout(() => {
@@ -959,6 +952,7 @@ function finishPoliceCallPhase1() {
   </script>
 </body>
 </html>
+
 
 
 
