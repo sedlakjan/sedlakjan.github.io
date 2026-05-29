@@ -1,235 +1,191 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ideš dovolenkovať | 5PEŇAZÍ</title>
+  <link rel="stylesheet" href="challenge.css">
 </head>
-<body>    
-        <a href="/index.html" style="text-decoration:none; color:#0067ab"><i class="fa-solid fa-arrow-left"></i> Späť na hlavné menu</a>
-
-<div style="padding-top:1em" class="container">
-
-    <div class="container">
-        <h1 id="change">Ideš dovolenkovať!</h1>
-                <p style="text-align: justify;">Plánuješ ísť v lete s kamarátmi na dovolenku. Keďže si ešte stredoškolák/čka a musíš myslieť na svoje možnosti, spravil/a si si menší prieskum a vybral/a tri možné destinácie. 
-                    Tvoje úlohy:</p>
-                    <ul style="list-style-type: none;Text-align: justify;">
-                        <li>1. Vyber si jednu z destinácii </li>
-                        <li>2. Rozhodni sa, čo všetko by mala ideálna dovolenka obsahovať – okrem úplných základov. </li>
-                        <li>3. Nezabudni ani na cestovné poistenie. </li>
-                        <li>4. Nakoniec objednaj dovolenku tlačidlom Objednaj</li>
-                    </ul>
-                   <P style="text-align: justify;">Výsledná suma je suma, ktorú by si mal/a počas roka našetriť, aby si si svoj plán mohol/a v lete splniť.</P> 
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="images/5_penazi_blue.svg" alt="5PEŇAZÍ">
+      </a>
+      <a class="back-link" href="index.html">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Späť na menu
+      </a>
     </div>
-<br>
-    <div id="kosik">
-    🛒<span id="display">0 €</span>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Finančný cieľ</p>
+        <h1>Ideš dovolenkovať!</h1>
+        <p class="lead">Plánuješ ísť v lete s kamarátmi na dovolenku. Keďže si ešte stredoškolák/čka a musíš myslieť na svoje možnosti, spravil/a si si prieskum a vybral/a tri možné destinácie.</p>
+      </div>
+      <div class="task-card">
+        <h2>Tvoje úlohy</h2>
+        <ol class="task-list">
+          <li><span>1</span>Vyber si jednu destináciu.</li>
+          <li><span>2</span>Rozhodni sa, čo všetko by mala ideálna dovolenka obsahovať.</li>
+          <li><span>3</span>Nezabudni na vreckové a cestovné poistenie.</li>
+          <li><span>4</span>Objednaj plán a zapíš si výslednú sumu.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div data-sections></div>
+
+    <div class="action-row">
+      <button class="order-button" type="button" data-order>
+        Objednaj
+        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+      </button>
+    </div>
+    <p class="validation" data-validation></p>
+  </main>
+
+  <aside class="cart-widget" data-cart-widget>
+    <div class="cart-top">
+      <div class="cart-icon"><span class="material-symbols-outlined">shopping_cart</span></div>
+      <div>
+        <p class="cart-label">Celková suma</p>
+        <p class="cart-total" data-total>0 €</p>
+      </div>
+    </div>
+    <div class="cart-lines" data-cart-lines></div>
+  </aside>
+
+  <div class="loading-layer" data-loading-layer>
+    <div class="loading-card">
+      <div class="spinner"></div>
+      <h2>Pripravujeme tvoj plán</h2>
+      <p>Počítame vybrané položky a skladáme z nich konkrétny finančný cieľ.</p>
+    </div>
   </div>
-    <h2>Kde stráviš budúci rok dovolenku?</h2>
-    <div class="row">
-        <div class="col-sm-12 col-md-4">
-            <div class="polaroid">
-        <h3>Chorvátsko
-        </h3>
-        <img class="item" src="/images/croatia/croatia-g7a5b8f742_1280.jpg"/>
-        <p class="popis">Zažite vysnívanú dovolenku v Chorvátsku. Krásne pláže, hory parky a historické mestá. Nechajte sa rozmaznávať krásou chotvátska hrajúceho všetkými farbami.</p>
-        <ul class="info">Ubytovanie
-            <li>Kemp</li>
-        </ul>
-                <ul class="info">Počet dní
-            <li>7
-            </li>
-        </ul>
-                <ul class="info">Strava
-            <li>1/2 penzia
-            </li>
-        </ul>
-                <ul class="info">Cesta
-            <li>auto
-            </li>
-        </ul>
-                <ul class="info">Cestovné náklady
-            <li>150,00 €
-            </li>
-        </ul>
-                <ul class="info">Bonus
-            <li>X</li>
-        </ul>
-        <h3 class="cena">Cena: 500 €</h3>
-        <button value="500" class="middle button-21">Vybrať</button>                             
-        </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-            <div class="polaroid">
-        <h3>Vysoké Tatry
-        </h3>
-        <img class="item" src="/images/croatia/strbske-pleso-geaa726351_1920.jpg"/>
-        <p class="popis">Vychutnajte si pobyt v najvyššom pohorí na Slovensku a v Poľsku a zároveň jediným horstvom v týchto štátoch s alpským charakterom.</p>
-        <ul class="info">Ubytovanie
-            <li>Hotel
-            </li>
-        </ul>
-                <ul class="info">Počet dní
-            <li>5
-            </li>
-        </ul>
-                <ul class="info">Strava
-            <li>len raňajky
-            </li>
-        </ul>
-                <ul class="info">Cesta
-            <li>vlak
-            </li>
-        </ul>
-                <ul class="info">Cestovné náklady
-            <li>30,00 €
-            </li>
-        </ul>
-                <ul class="info">Bonus
-            <li>neobmedzený wellness
-            </li>
-        </ul>
-        <h3 class="cena">Cena: 453 €
-        </h3>
-        <button value="453.00" class="middle button-21">Vybrať</button>                 
-        </div>
-        </div>
-        <div class="col-sm-12 col-md-4">
-            <div class="polaroid">
-        <h3>Sardínia
-        </h3>
-        <img class="item" src="/images/croatia/cala-goloritze-g6a2921fdf_1920.jpg"/>
-        <p class="popis">Sardínia, nazývaná tiež ako smaragdový ostrov, láka na azúrové more, malebné skalnaté pobrežia aj historické pamiatky. Nechajte sa aj vy uniesť jednou z perál Stredomoria!</p>
 
-        <ul class="info">Ubytovanie
-            <li>Hotel
-            </li>
+  <div class="modal-layer" data-modal-layer>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Hotovo, cieľ máš vyskladaný</h2>
+        <p>Nie je to len objednávka. Je to suma, ktorú si potrebuješ počas roka našetriť.</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-total"><span>Tvoj finančný cieľ</span><strong data-modal-total>0 €</strong></div>
+        <ul class="next-steps">
+          <li><span>1</span>Zapíš si túto sumu na papier k zadaniu.</li>
+          <li><span>2</span>Nájdi si brigádu alebo spôsob, ako si budeš pravidelne odkladať peniaze.</li>
+          <li><span>3</span>Postupuj podľa pokynov na papieri a priebežne si sleduj, koľko ti ešte chýba.</li>
         </ul>
-                <ul class="info">Počet dní
-            <li>8
-            </li>
-        </ul>
-                <ul class="info">Strava
-            <li>all inclusive
-            </li>
-        </ul>
-                <ul class="info">Cesta
-            <li>lietadlo
-            </li>
-        </ul>
-                <ul class="info">Cestovné náklady
-            <li>450,00 €
-            </li>
-        </ul>
-                <ul class="info">Bonus
-            <li>X</li>
-        </ul>
-        <h3 class="cena">Cena: 1 100 €
-        </h3>
-        <button value="1100" class="middle button-21">Vybrať</button>                 
+        <p>Začať môžeš napríklad cez tieto pracovné portály:</p>
+        <div class="job-links">
+          <a href="https://www.brigady.sk" target="_blank" rel="noreferrer">BRIGADY.SK</a>
+          <a href="https://www.profesia.sk" target="_blank" rel="noreferrer">PROFESIA.SK</a>
         </div>
-        </div>
-        <h2>Program na dovolenke si treba občas vylepšiť, no niečo to bude stáť</h2>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <h3>Obed v reštaurácií</h3>
-                <img class="item" src="/images/croatia/pizza-ge1c898868_1920.jpg"/>
-                <p class="popis">Občas nám po raňajkách vyhladne a treba doplniť sily</p>    
-                <h3 class="cena">Cena: 50 €</h3>
-                <button value="50" class="middle button-21">Vybrať</button>     
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h3>Luxusné večere v reštaurácií</h3>
-                <img class="item" src="/images/croatia/restaurant-gad72631cc_1920.jpg"/>
-                <p class="popis">Romantika pri sviečkach, čo môže byť lepšie?</p>    
-                <h3 class="cena">Cena: 100 €</h3>
-                <button value="100" class="middle button-21">Vybrať</button>    
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h3>Požičanie bicykla</h3>
-                <img class="item" src="/images/croatia/man-g841f54f28_1920.jpg">
-                <p class="popis">Rýchlejší a zábavnejší spôsob ako poznať okolie</p>    
-                <h3 class="cena">Cena: 30 €</h3>
-                <button value="30" class="middle button-21">Vybrať</button>    
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <h3>Prenájom auta</h3>
-                <img class="item" src="/images/croatia/rental-car-g9264d0542_1920.jpg"/>
-                <p class="popis">Ak nás destinácia omrzí, môžeme objavovať širšie okolie</p>    
-                <h3 class="cena">Cena: 90 €</h3>
-                <button value="90" class="middle button-21">Vybrať</button>     
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h3>Potápacký/jaskynný kurz</h3>
-                <img class="item" src="/images/croatia/sub-g133c05333_1920.jpg"/>
-                <p class="popis">Adrenalín k dovolenke jednoznačne patrí</p>    
-                <h3 class="cena">Cena: 350 €</h3>
-                <button value="350" class="middle button-21">Vybrať</button>    
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h3>Atrakcie na vode</h3>
-                <img class="item" src="/images/croatia/sport-g6eb0891f6_1280.jpg"/>
-                <p class="popis">Plávanie je nuda, treba si počlnkovať</p>    
-                <h3 class="cena">Cena: 30 €</h3>
-                <button value="30" class="middle button-21">Vybrať</button>    
-            </div>
-        </div>
-        
-            <div class="col-sm-12 col-md-4">
-                <h3>Výlet so sprievodcom</h3>
-                <img class="item" src="/images/croatia/map-g5f83b89d0_1920.jpg"/>
-                <p class="popis">Spoznaj aj historické zákutia svojej dovolenky s jedinečným výkladom</p>    
-                <h3 class="cena">Cena: 70 €</h3>
-                <button value="70" class="middle button-21">Vybrať</button>     
-          
-        </div>
-        <h2>Nespoliehaj sa, že sa nič nestane</h2>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <h3>Vreckové</h3>
-                <img class="item" src="/images/croatia/golden-ge239cdebe_1920.jpg"/>
-                <p class="popis">Magnetka na chladničku pre mamu a tričko so srdiečkom pre brata. Alebo len tak pre istotu</p>    
-                <h3 class="cena">Cena: 200 €</h3>
-                <button value="200" class="middle button-21">Vybrať</button>    
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h3>Poistenie</h3>
-                <img class="item" src="/images/croatia/car-crash-g7ba3b45b5_1920.jpg"/>
-                <p class="popis">Možno sa nič nestane, ale účet od záchranárov rozhodne nepoteší</p>    
-                <h3 class="cena">Cena: 30 €</h3>
-                <button value="30" class="middle button-21">Vybrať</button>  
-            </div>
-            </div>
-        </div>
+        <button class="close-modal" type="button" data-close-modal>Rozumiem</button>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <strong>5PEŇAZÍ</strong>
+      <span>© 2024 - Národná banka Slovenska</span>
     </div>
+  </footer>
 
-
-
-
-
-<div class="container">
-    <div class="row rowFinal">
-        <div class="col-md-6 col-sm-12">
-            <button id="vysledok" class="col align-self-center fa-solid btn btn-2 btn-sep btn btn-primary d-block mx-auto" onclick="summary()"> Objednaj</button>
-        </div>
-            <div id="output"></div>
-    </div>
-</div>
-<div class="container">
-<img style="width: 30em"class="img-fluid  object-fit-cover rounded mx-auto d-block" src="https://5penazi.sk/wp-content/uploads/2025/05/5penazi-logo-tagline-nbs-blue-transparent.png"/>
-</div>
-    <script src="code.js"></script>
-    <script src="https://kit.fontawesome.com/5b37d795f3.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+  <script>
+    window.challengeConfig = {
+      sections: [
+        {
+          id: "destination",
+          shortTitle: "destináciu",
+          title: "Kde stráviš budúci rok dovolenku?",
+          icon: "beach_access",
+          required: true,
+          mode: "single",
+          columns: 3,
+          items: [
+            {
+              id: "croatia",
+              title: "Chorvátsko",
+              subtitle: "Pláže, historické mestá a cesta autom.",
+              image: "https://commons.wikimedia.org/wiki/Special:FilePath/Croatia-Coastline.jpg",
+              price: 500,
+              specs: [
+                { label: "Ubytovanie", value: "Kemp" },
+                { label: "Počet dní", value: "7" },
+                { label: "Strava", value: "1/2 penzia" },
+                { label: "Cesta", value: "Auto" }
+              ]
+            },
+            {
+              id: "tatry",
+              title: "Vysoké Tatry",
+              subtitle: "Hory, wellness a cesta vlakom.",
+              image: "https://commons.wikimedia.org/wiki/Special:FilePath/High%20Tatras%20%28%C5%A0trbsk%C3%A9%20pleso%29.JPG",
+              price: 453,
+              specs: [
+                { label: "Ubytovanie", value: "Hotel" },
+                { label: "Počet dní", value: "5" },
+                { label: "Strava", value: "Raňajky" },
+                { label: "Cesta", value: "Vlak" }
+              ]
+            },
+            {
+              id: "sardinia",
+              title: "Sardínia",
+              subtitle: "Smaragdové more a all inclusive.",
+              image: "https://commons.wikimedia.org/wiki/Special:FilePath/Goloritze%20pano.jpg",
+              price: 1100,
+              specs: [
+                { label: "Ubytovanie", value: "Hotel" },
+                { label: "Počet dní", value: "8" },
+                { label: "Strava", value: "All inclusive" },
+                { label: "Cesta", value: "Lietadlo" }
+              ]
+            }
+          ]
+        },
+        {
+          id: "program",
+          shortTitle: "program",
+          title: "Program si môžeš vylepšiť",
+          intro: "Vyber si doplnkové zážitky. Tu môžeš pridať aj viac možností naraz.",
+          icon: "local_activity",
+          mode: "multi",
+          columns: 3,
+          items: [
+            { id: "lunch", title: "Obed v reštaurácii", subtitle: "Keď po raňajkách vyhladne.", image: "images/croatia/pizza-ge1c898868_1920.jpg", price: 50 },
+            { id: "dinner", title: "Luxusné večere", subtitle: "Romantika pri sviečkach.", image: "images/croatia/restaurant-gad72631cc_1920.jpg", price: 100 },
+            { id: "bike", title: "Požičanie bicykla", subtitle: "Rýchlejšie spoznávanie okolia.", image: "images/croatia/man-g841f54f28_1920.jpg", price: 30 },
+            { id: "car-rent", title: "Prenájom auta", subtitle: "Objav širšie okolie destinácie.", image: "images/croatia/rental-car-g9264d0542_1920.jpg", price: 90 },
+            { id: "diving", title: "Potápačský kurz", subtitle: "Adrenalín k dovolenke patrí.", image: "images/croatia/sub-g133c05333_1920.jpg", price: 350 },
+            { id: "water", title: "Atrakcie na vode", subtitle: "Keď plávanie nestačí.", image: "images/croatia/sport-g6eb0891f6_1280.jpg", price: 30 },
+            { id: "guide", title: "Výlet so sprievodcom", subtitle: "História a zaujímavosti v teréne.", image: "images/croatia/map-g5f83b89d0_1920.jpg", price: 70 }
+          ]
+        },
+        {
+          id: "safety",
+          shortTitle: "poistenie a rezervu",
+          title: "Nespoliehaj sa, že sa nič nestane",
+          icon: "health_and_safety",
+          required: true,
+          panel: true,
+          mode: "multi",
+          minSelected: 2,
+          columns: 2,
+          items: [
+            { id: "cash", title: "Vreckové", subtitle: "Magnetka pre mamu alebo rezerva pre istotu.", icon: '<span class="material-symbols-outlined">payments</span>', price: 200 },
+            { id: "insurance", title: "Poistenie", subtitle: "Účet od záchranárov nepoteší.", icon: '<span class="material-symbols-outlined">shield</span>', accent: "warm", price: 30 }
+          ]
+        }
+      ]
+    };
+  </script>
+  <script src="challenge.js"></script>
 </body>
 </html>

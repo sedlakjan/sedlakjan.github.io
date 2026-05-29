@@ -1,218 +1,282 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Starý mobil za nový | 5PEŇAZÍ</title>
+  <link rel="stylesheet" href="challenge.css">
 </head>
 <body>
-    <a href="/index.html" style="text-decoration:none; color:#0067ab"><i class="fa-solid fa-arrow-left"></i> Späť na hlavné menu</a>
-</br>
-</br>
-
-    <div class="container">
-        <h1 id="change">Starý mobil za nový</h1>
-                <p style="text-align: justify;">Rozhodol/a si sa kúpiť nový mobil. Už si si spravil/a prieskum a vybral/a si tri modely, ktoré prichádzajú do úvahy. <br>
-                    Tvoje úlohy:</p>
-                    <ul style="list-style-type: none;Text-align: justify;">
-                        <li>1. Vyber si jeden z telefónov</li>
-                        <li>2. Rozhodni sa, či si k nemu kúpiš aj príslušenstvo – napríklad slúchadlá, obal alebo powerbanku</li>
-                        <li>3. Vyber si z ponuky mobilných paušálov ten, ktorý Ti najviac vyhovuje</li>
-                        <li>4. Nakoniec objednaj nákup tlačidlom Objednaj</li>
-                    </ul>
-                   <P style="text-align: justify;">Výsledná suma  je suma, ktorú by si mal/a počas roka našetriť, aby si si mohol/a kúpiť vysnívaný smartphone.</P> 
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="images/5_penazi_blue.svg" alt="5PEŇAZÍ">
+      </a>
+      <a class="back-link" href="index.html">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Späť na menu
+      </a>
     </div>
-<br>
-<div id="kosik">
-    🛒<span id="display">0 €</span>
-  </div>
-    <div class="container">
-        <h2>Najskôr si vyber telefón, ktorým sa chceš budúci rok pochváliť</h2><br>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="mobil">
-                    <div class="polaroid">
-                    <h3>Nothing Phone (2a) 8 GB/128 GB</h3>  
-                    <img class="item" src="\img/nothing.webp"/>
-                    <p class="popis"> 6,7" AMOLED 2412 × 1080, operačná pamäť 8 GB, vnútorná pamäť 128 GB, dual SIM, procesor MediaTek Dimensity 7200 Pro, fotoaparát: 50 Mpx (f/1,9) hlavný + 50 Mpx širokouhlý, predná kamera 32 Mpx, GPS, NFC, LTE, 5G, USB-C, rýchle nabíjanie 45 W, batéria 5000 mAh, model 2024, Android</p>
-                    <h3 class="cena">Cena: 279€ s DPH</h3>
-                    <button value="279" id="mobil1" class="middle button-21">Vybrať</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Samsung Galaxy A56 8 GB/256 GB</h3>  
-                <img class="item" src="\img/sAMSUNG.webp"/>
-                <p class="popis">6,7" AMOLED 2340 × 1080 (120 Hz), operačná pamäť 8 GB, vnútorná pamäť 256 GB, dual SIM, procesor Samsung Exynos 1580, fotoaparát: 50 Mpx (f/1,8) hlavný + 12 Mpx širokouhlý + 5 Mpx makro, predná kamera 12 Mpx, čítačka odtlačkov prstov, GPS, NFC, LTE, 5G, USB-C, vodoodolný podľa IP67, rýchle nabíjanie 45 W, batéria 5000 mAh, model 2025, Android</p>
-                <h3 class="cena">Cena: 479€ s DPH</h3>
-                <button value="479" id="mobil2" class="middle button-21">Vybrať</button>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>iPhone 16 128 GB čierny</h3>  
-                <img class="item" src="/img/iphone.webp"/>
-                <p class="popis">6,1" Super Retina XDR OLED 2556 × 1179, operačná pamäť 8 GB, vnútorná pamäť 128 GB, single SIM + eSIM, procesor Apple A18 Bionic, fotoaparát: 48 Mpx (f/1,6) hlavný + 12 Mpx širokouhlý, GPS, NFC, LTE, 5G, USB-C, vodoodolný podľa IP68, rýchle nabíjanie, bezdrôtové nabíjanie 15 W, batéria 3561 mAh, model 2024, iOS</p>
-                <h3 class="cena">Cena: 879€ s DPH</h3>
+  </header>
 
-                <button value="879" id="mobil3" class="middle button-21">Vybrať</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</br>
-</br>
-</br>
-    <div class="container">
-        <h2>Niečo na počúvanie hudby počas čakania na autobus</h2>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>JBL Wave Beam</h2>  
-                <img class="item" src="\img/jbl.webp"/>
-                <p class="popis">Bezdrôtové slúchadlá – s mikrofónom, True Wireless, štuple, pasívne potlačenie hluku, uzatvorená konštrukcia, Bluetooth 5.2, Ambient sound, hlasový asistent, prepínanie skladieb, prijímanie hovorov, s ovládaním hlasitosti, certifikácia IPX4, frekvenčný rozsah 20–20000 Hz, citlivosť 100 dB/mW, impedancia 16 Ohm, menič 8 mm, výdrž batérie až 32h</p>
-                <h3 class="cena">Cena: 59 € s DPH</h3>
-                <button value="59" class="middle button-21">Vybrať</button>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Apple AirPods 4</h2>  
-                <img class="item" src="\img/appleschluchadla.webp"/>
-                <p class="popis">Bezdrôtové slúchadlá – s mikrofónom, True Wireless, kôstky, otvorená konštrukcia, Bluetooth 5.3, prepínanie skladieb, prijímanie hovorov, certifikácia IP54, výdrž batérie až 30 h (5 h+30 h)</p>
-                <h3 class="cena">Cena: 140 € s DPH</h3>
-                <button value="140" class="middle button-21">Vybrať</button>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-               <div class="polaroid">
-                <h3>Sony Noise Cancelling WH-1000XM6</h3>  
-                <img class="item" src="\img/sony.webp"/>
-        
-                <p class="popis">Bezdrôtové slúchadlá – s mikrofónom, cez hlavu, okolo uší, aktívne potlačenie hluku (ANC), uzatvorená konštrukcia, 3,5 mm Jack, Bluetooth 5.3, podpora AAC, LDAC, SBC a LC3, Ambient sound, herný režim, Hi-Res audio, hlasový asistent, Multipoint, prepínanie skladieb, prijímanie hovorov, s ovládaním hlasitosti, sony Sound Connect, frekvenčný rozsah 4–40000 Hz, menič 30 mm, výdrž batérie až 40 h</p>
-        
-                <h3 class="cena">Cena: 469 € s DPH</h3>
-        
-                <button value="469" class="middle button-21">Vybrať</button>
-                </div>
-            </div>
-            </div>
-            <br>
-
-            <h2>V prípade, že Ti telefón padne </h2>
-            <div class="row">
-
-                <div class="col-sm-12 col-md-4">
-                    <div class="polaroid">
-                  <h3>Obal</h3>  
-                  <img class="item" src="\images\obal.jpg"/>
-                  <p class="popis">Kryt na mobil, silikón a TPU, mäkký, MagSafe, kompatibilný s bezdrôtovým dobíjaním, výrezy na konektory a tlačidlá</p>
-                  <h3 class="cena">Cena: 15 € s DPH</h3>
-                </br>
-                  <div class="row">
-                  <button value="15" class="middle button-21">Vybrať</button>
-                </div>
-                </div>
-                </div>
-              </div>
-            </br>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <h2>Ak náhodou dôjde šťava, zachráni Ťa powerbank</h2>
-
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Eloop E41 10000 mAh</h2>  
-                <img class="item" src="\images\powerbanklacna.webp"/>
-                <p class="popis">Powerbank pre mobilné telefóny a tablety, 10000 mAh, 3 výstupy až 5 V a 2.1 A, LED indikácia stavu</p>
-                <h3 class="cena">Cena: 12 € s DPH</h3>
-                <button value="12" class="middle button-21">Vybrať</button>        
-            </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Xiaomi bezdrôtová 10000 mAh</h2>  
-                <img class="item" src="\images\powerbankwireless.png"/>
-                <p class="popis">Powerbank pre mobilné telefóny a tablety, 10000 mAh, rýchle nabíjanie 18 W, QI bezdrôtové nabíjanie, USB-A výstup až 5 V a 2.4 A, LED indikácia stavu</p>
-                <h3 class="cena">Cena: 26 € s DPH</h3>
-                <button value="26" class="middle button-21">Vybrať</button>
-        </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Alza solárna 20000 mAh</h2>  
-                <img class="item" src="\images\powerbanksolarna.jpg"/>
-                <p class="popis">Powerbank – s podporou rýchleho nabíjania, 1× USB-A (max 3A), 1× vstup/výstup USB-C (max 3A), wireless max 10W, solárny panel 1.25W</p>
-                <h3 class="cena">Cena: 68 € s DPH</h3>
-                <button value="68" class="middle button-21">Vybrať</button>
-            </div>
-            </div>
-        </div>
-    </div>
-
-<div class="container">
-<h2>Pomalý Instagram? Asi došli dáta... </br>Nakoniec si vyber paušál pre svoj telefón</h2>
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-        <h3>Pausál A</h3>  
-
-    
-                <p class="popis">16 BG Dáta, 300 Min Hovorov, Pokrytie Nízke</p>
-    
-                <h3 class="cena">Cena: 20 € s DPH / Mesačne</h3>
-                <button value="20" class="middle button-21">Vybrať</button>
-
-        </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Pausál B</h2>  
-                <p class="popis">30 BG Dáta, Neobmedzene Min Hovorov, Pokrytie Stredné</p>
-                <h3 class="cena">Cena: 30 € s DPH / Mesačne</h3>
-                <button value="30" class="middle button-21">Vybrať</button>
-            </div>
-            </div>            
-            <div class="col-sm-12 col-md-4">
-                <div class="polaroid">
-                <h3>Pausál C</h3>  
-                        <p class="popis">Neobmedzené Dáta & Hovory, Pokrytie Vysoké</p>
-                        <h3 class="cena">Cena: 60 € s DPH / Mesačne</h3>
-                        <button value="60"class="middle button-21">Vybrať</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-</br>
-</br>
-</br>
-<div class="container">
-    <div class="row rowFinal">
-        <div class="col-md-6 col-sm-12">
-            <button id="vysledok" class="col align-self-center fa-solid btn btn-2 btn-sep btn btn-primary d-block mx-auto" onclick="summary()"> Objednaj</button>
-        </div>
-            <div id="output"></div>
-    </div>
-</div>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Finančný cieľ</p>
+        <h1>Starý mobil za nový</h1>
+        <p class="lead">Rozhodol/a si sa kúpiť nový mobil. Vyber si aktuálny model, doplnky, ktoré dávajú zmysel, a paušál na celý rok.</p>
       </div>
-<div class="container">
-<img style="width: 30em;" class="img-fluid  object-fit-cover rounded mx-auto d-block" src="https://5penazi.sk/wp-content/uploads/2025/05/5penazi-logo-tagline-nbs-blue-transparent.png"/>
-</div>
-      <script src="code.js"></script>
-      <script src="https://kit.fontawesome.com/5b37d795f3.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <div class="task-card">
+        <h2>Tvoje úlohy</h2>
+        <ol class="task-list">
+          <li><span>1</span>Vyber si jeden z telefónov.</li>
+          <li><span>2</span>Rozhodni sa, či k nemu potrebuješ príslušenstvo.</li>
+          <li><span>3</span>Vyber si mobilný paušál, ktorý ti najviac vyhovuje.</li>
+          <li><span>4</span>Objednaj plán a zapíš si výslednú sumu.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div data-sections></div>
+
+    <div class="action-row">
+      <button class="order-button" type="button" data-order>
+        Objednaj
+        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+      </button>
+    </div>
+    <p class="validation" data-validation></p>
+  </main>
+
+  <aside class="cart-widget" data-cart-widget>
+    <div class="cart-top">
+      <div class="cart-icon"><span class="material-symbols-outlined">shopping_cart</span></div>
+      <div>
+        <p class="cart-label">Celková suma</p>
+        <p class="cart-total" data-total>0 €</p>
+      </div>
+    </div>
+    <div class="cart-lines" data-cart-lines></div>
+  </aside>
+
+  <div class="loading-layer" data-loading-layer>
+    <div class="loading-card">
+      <div class="spinner"></div>
+      <h2>Pripravujeme tvoj plán</h2>
+      <p>Počítame vybrané položky a skladáme z nich konkrétny finančný cieľ.</p>
+    </div>
+  </div>
+
+  <div class="modal-layer" data-modal-layer>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Hotovo, cieľ máš vyskladaný</h2>
+        <p>Nie je to len objednávka. Je to suma, ktorú si potrebuješ počas roka našetriť.</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-total"><span>Tvoj finančný cieľ</span><strong data-modal-total>0 €</strong></div>
+        <ul class="next-steps">
+          <li><span>1</span>Zapíš si túto sumu na papier k zadaniu.</li>
+          <li><span>2</span>Nájdi si brigádu alebo spôsob, ako si budeš pravidelne odkladať peniaze.</li>
+          <li><span>3</span>Postupuj podľa pokynov na papieri a priebežne si sleduj, koľko ti ešte chýba.</li>
+        </ul>
+        <p>Začať môžeš napríklad cez tieto pracovné portály:</p>
+        <div class="job-links">
+          <a href="https://www.brigady.sk" target="_blank" rel="noreferrer">BRIGADY.SK</a>
+          <a href="https://www.profesia.sk" target="_blank" rel="noreferrer">PROFESIA.SK</a>
+        </div>
+        <button class="close-modal" type="button" data-close-modal>Rozumiem</button>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <strong>5PEŇAZÍ</strong>
+      <span>© 2024 - Národná banka Slovenska</span>
+    </div>
+  </footer>
+
+  <script>
+    window.challengeConfig = {
+      sections: [
+        {
+          id: "phone",
+          shortTitle: "telefón",
+          title: "Najskôr si vyber aktuálny telefón",
+          icon: "smartphone",
+          required: true,
+          mode: "single",
+          columns: 3,
+          items: [
+            {
+              id: "nothing",
+              title: "Nothing Phone (4a) Pro",
+              subtitle: "Štýlový midrange s veľkým AMOLED displejom.",
+              image: "img/nothing.webp",
+              mediaFit: "contain",
+              price: 499,
+              specs: [
+                { label: "Displej", value: "6,83\" AMOLED" },
+                { label: "Pamäť", value: "12 / 256 GB" },
+                { label: "Model", value: "2026" }
+              ]
+            },
+            {
+              id: "samsung",
+              title: "Samsung Galaxy A57",
+              subtitle: "Aktuálna A-rada s veľkým 120 Hz displejom.",
+              image: "img/sAMSUNG.webp",
+              mediaFit: "contain",
+              price: 529,
+              specs: [
+                { label: "Displej", value: "6,7\" AMOLED" },
+                { label: "Pamäť", value: "8 / 256 GB" },
+                { label: "Model", value: "2026" }
+              ]
+            },
+            {
+              id: "iphone",
+              title: "iPhone 17e",
+              subtitle: "Dostupnejší iPhone s 256 GB úložiskom.",
+              image: "img/iphone.webp",
+              mediaFit: "contain",
+              price: 699,
+              specs: [
+                { label: "Displej", value: "6,1\" OLED" },
+                { label: "Pamäť", value: "256 GB" },
+                { label: "Model", value: "2026" }
+              ]
+            }
+          ]
+        },
+        {
+          id: "audio",
+          title: "Niečo na počúvanie",
+          intro: "Slúchadlá sú voliteľné. Fotky tu netreba, dôležitejšia je cena a to, čo za ňu dostaneš.",
+          icon: "headphones",
+          mode: "multi",
+          columns: 3,
+          items: [
+            {
+              id: "jbl-tour",
+              title: "JBL Tour Pro 3",
+              subtitle: "Prémiové TWS s ANC a smart puzdrom.",
+              icon: '<span class="material-symbols-outlined">earbuds</span>',
+              price: 249,
+              features: [
+                { ok: true, text: "ANC a ambient režim" },
+                { ok: true, text: "Výdrž s puzdrom do 44 h" },
+                { ok: true, text: "Vhodné pre Android aj iPhone" }
+              ]
+            },
+            {
+              id: "airpods-pro",
+              title: "Apple AirPods Pro 3",
+              subtitle: "Najlepšia voľba k iPhonu.",
+              icon: '<span class="material-symbols-outlined">earbuds_battery</span>',
+              price: 249,
+              features: [
+                { ok: true, text: "Výborné ANC" },
+                { ok: true, text: "Priestorový zvuk v Apple ekosystéme" },
+                { ok: true, text: "IP57 odolnosť" }
+              ]
+            },
+            {
+              id: "sony-wf",
+              title: "Sony WF-1000XM6",
+              subtitle: "Vlajkové TWS pre hudbu a ticho.",
+              icon: '<span class="material-symbols-outlined">graphic_eq</span>',
+              price: 329,
+              features: [
+                { ok: true, text: "Silné ANC" },
+                { ok: true, text: "LDAC a detailný zvuk" },
+                { ok: true, text: "Výdrž do 24 h s puzdrom" }
+              ]
+            }
+          ]
+        },
+        {
+          id: "protection",
+          title: "V prípade, že Ti padne",
+          icon: "shield",
+          mode: "multi",
+          panel: true,
+          columns: 2,
+          items: [
+            { id: "case", title: "Silikónový obal", subtitle: "Mäkký, MagSafe kompatibilný.", icon: '<span class="material-symbols-outlined">shield</span>', price: 15 }
+          ]
+        },
+        {
+          id: "power",
+          title: "Ak náhodou dôjde šťava",
+          icon: "battery_alert",
+          mode: "multi",
+          layout: "compact",
+          items: [
+            { id: "eloop", title: "Eloop E41 10000 mAh", subtitle: "Základná powerbanka do batohu.", icon: '<span class="material-symbols-outlined">battery_charging_full</span>', price: 12 },
+            { id: "xiaomi", title: "Xiaomi Wireless 10K", subtitle: "Bezdrôtové nabíjanie a USB-C.", icon: '<span class="material-symbols-outlined">battery_charging_60</span>', price: 26 },
+            { id: "solar", title: "Alza Solárna 20K", subtitle: "Väčšia kapacita a solárny panel.", icon: '<span class="material-symbols-outlined">solar_power</span>', price: 68 }
+          ]
+        },
+        {
+          id: "plan",
+          shortTitle: "paušál",
+          title: "Pomalý Instagram? Vyber si paušál",
+          icon: "signal_cellular_alt",
+          required: true,
+          mode: "single",
+          columns: 3,
+          items: [
+            {
+              id: "plan-a",
+              title: "Paušál A",
+              subtitle: "Lacnejšia voľba, ak dáta šetríš.",
+              icon: "A",
+              price: 240,
+              displayPrice: "20 €",
+              priceNote: "/ mesiac (240 € ročne)",
+              features: [
+                { ok: true, text: "16 GB dát" },
+                { ok: true, text: "300 min hovorov" },
+                { ok: false, text: "Pokrytie nižšie" }
+              ]
+            },
+            {
+              id: "plan-b",
+              title: "Paušál B",
+              subtitle: "Najobľúbenejšia rovnováha ceny a dát.",
+              icon: "B",
+              badge: "Najobľúbenejší",
+              featured: true,
+              price: 360,
+              displayPrice: "30 €",
+              priceNote: "/ mesiac (360 € ročne)",
+              features: [
+                { ok: true, text: "30 GB dát" },
+                { ok: true, text: "Neobmedzené hovory" },
+                { ok: true, text: "Pokrytie stredné" }
+              ]
+            },
+            {
+              id: "plan-c",
+              title: "Paušál C",
+              subtitle: "Keď nechceš riešiť limity.",
+              icon: "C",
+              price: 720,
+              displayPrice: "60 €",
+              priceNote: "/ mesiac (720 € ročne)",
+              features: [
+                { ok: true, text: "Neobmedzené dáta" },
+                { ok: true, text: "Neobmedzené hovory" },
+                { ok: true, text: "Pokrytie vysoké" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  </script>
+  <script src="challenge.js"></script>
 </body>
 </html>
