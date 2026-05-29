@@ -17,6 +17,7 @@
   const modalLayer = document.querySelector("[data-modal-layer]");
   const modalTotal = document.querySelector("[data-modal-total]");
   const closeModal = document.querySelector("[data-close-modal]");
+  let orderedTotal = 0;
 
   function getTotal() {
     return Object.values(state).reduce((sum, entry) => {
@@ -48,6 +49,7 @@
     });
 
     if (widgetEl) {
+      widgetEl.classList.remove("is-hidden");
       widgetEl.classList.add("bump");
       window.setTimeout(() => widgetEl.classList.remove("bump"), 180);
     }
@@ -186,9 +188,23 @@
 
   function openModal() {
     const total = getTotal();
+    orderedTotal = total;
     modalTotal.textContent = formatPrice(total);
     modalLayer.classList.add("is-open");
     document.body.classList.add("modal-open");
+  }
+
+  function closeOrderModal() {
+    modalLayer.classList.remove("is-open");
+    document.body.classList.remove("modal-open");
+
+    if (orderedTotal > 0) {
+      orderBtn.innerHTML = `Objednané za: ${formatPrice(orderedTotal)}`;
+      orderBtn.classList.add("is-complete");
+      if (widgetEl) {
+        widgetEl.classList.add("is-hidden");
+      }
+    }
   }
 
   function startOrder() {
@@ -215,14 +231,10 @@
   updateCart();
 
   orderBtn.addEventListener("click", startOrder);
-  closeModal.addEventListener("click", () => {
-    modalLayer.classList.remove("is-open");
-    document.body.classList.remove("modal-open");
-  });
+  closeModal.addEventListener("click", closeOrderModal);
   modalLayer.addEventListener("click", (event) => {
     if (event.target === modalLayer) {
-      modalLayer.classList.remove("is-open");
-      document.body.classList.remove("modal-open");
+      closeOrderModal();
     }
   });
 })();
